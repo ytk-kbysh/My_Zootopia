@@ -35,13 +35,15 @@ html_data = load_html('animals_template.html')
 output = ''  # define an empty string
 for item in animals_data:
     # append information to each string
-    output += f"Name: {item['name']}\n"
-    output += f"Diet: {item['characteristics']['diet']}\n"
-    output += f"Location: {item['locations'][0]}\n"
+    output += '            <li class="cards__item">\n'
+    output += f"            Name: {item['name']}<br/>\n"
+    output += f"            Diet: {item['characteristics']['diet']}<br/>\n"
+    output += f"            Location: {item['locations'][0]}<br/>\n"
     try:
-        output += f"Type: {item['characteristics']['type']}\n"
+        output += f"            Type: {item['characteristics']['type']}<br/>\n"
     except:
-        pass
+        continue
+    output += "            </li>\n"
 
 re_html = html_data.replace("__REPLACE_ANIMALS_INFO__", output)
 
