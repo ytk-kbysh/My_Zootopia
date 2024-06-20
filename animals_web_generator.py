@@ -36,14 +36,17 @@ output = ''  # define an empty string
 for item in animals_data:
     # append information to each string
     output += '            <li class="cards__item">\n'
-    output += f"            Name: {item['name']}<br/>\n"
-    output += f"            Diet: {item['characteristics']['diet']}<br/>\n"
-    output += f"            Location: {item['locations'][0]}<br/>\n"
+    output += f'                <div class="card__title"> {item['name']} </div>\n'
+    output += f'                <p class="card__text">\n'
+    output += f"                    <strong>Diet:</strong> {item['characteristics']['diet']}<br/>\n"
+    output += f"                    <strong>Location:</strong> {item['locations'][0]}<br/>\n"
     try:
-        output += f"            Type: {item['characteristics']['type']}<br/>\n"
+        output += f"                    <strong>Type:</strong> {item['characteristics']['type']}<br/>\n"
     except:
-        continue
+        pass
+    output += f"                </p>\n"
     output += "            </li>\n"
+print(output)
 
 re_html = html_data.replace("__REPLACE_ANIMALS_INFO__", output)
 
