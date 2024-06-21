@@ -20,14 +20,14 @@ def serialize_animal(item):
   output += '            <li class="cards__item">\n'
   output += f'                <div class="card__title"> {item['name']} </div>\n'
   output += f'                <p class="card__text">\n'
-  output += f"                    <ul>"
+  output += f"                    <ul>\n"
   output += f"                        <li><strong>Diet:</strong> {item['characteristics']['diet']} </li>\n"
   output += f"                        <li><strong>Location:</strong> {item['locations'][0]}</li>\n"
   try:
       output += f"                        <li><strong>Type:</strong> {item['characteristics']['type']}</li>\n"
   except:
       pass
-  output += f"                    </ul>"
+  output += f"                    </ul>\n"
   output += f"               </p>\n"
   output += "            </li>\n"
 
@@ -38,6 +38,7 @@ animals_data = load_data('animals_data.json')
 html_data = load_html('animals_template.html')
 
 output = ''  # define an empty string
+
 
 for animalobj in animals_data:
     # append information to each string
